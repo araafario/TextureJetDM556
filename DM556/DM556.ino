@@ -177,7 +177,7 @@ void readACS() {
     AcsValueF = fabs((2.5 - (AvgAcs * (5.0 / 1024.0)) ) / 0.100); //Voltage
     AcsValueF *= 1.1914; //Offset
     if (AcsValueF < 0.2) AcsValueF = 0;
-    //AcsValueF = 0.5543*AcsValueF + 0.1417; //Regression Bad Result 
+    //AcsValueF = 0.5543*AcsValueF + 0.1417; //Regression Bad Result | 0.06 - 0.175 | 0.52 - 0.43 |
     x = 0;
     Samples = 0;
   }
