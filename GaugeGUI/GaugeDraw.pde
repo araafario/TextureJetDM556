@@ -1,3 +1,7 @@
+void drawGauge() {
+  currentGauge();
+  stepperGauge();
+}
 
 void segment(float x, float y, float a) {
   translate(x, y);
@@ -12,6 +16,8 @@ void currentGauge() {
   anglef1 = (180-(dispCurrent)*45)*3.1416/180*-1; //desiredHalf*x = 180
 
   pushMatrix();
+  float x1 = 350*2 * 0.25, y1 = 300 * 0.8;
+    
   segment(x1, y1, anglef1);
   popMatrix();
 
@@ -27,11 +33,14 @@ void currentGauge() {
   arc(175, 245, 240, 245, PI, TWO_PI);
 }
 
-
 void stepperGauge() {
-  anglef2 = (180-(step)*0.09)*3.1416/180*-1; //desiredHalf*x = 180
+  int drawStep;
+  if (step < 0) drawStep = 0;
+  else drawStep = step;
+  anglef2 = (180-(drawStep)*0.09)*3.1416/180*-1; //desiredHalf*x = 180
 
   pushMatrix();
+  float x2 = 350*2 * 0.75, y2 = 300 * 0.8;
   segment(x2, y2, anglef2);
   popMatrix();
 
